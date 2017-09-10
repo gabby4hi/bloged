@@ -38,15 +38,23 @@
             </li>
             <li><a href="{{ route('post.index') }}">Post</a></li>
             <li>
+            
+            {!! Form::open(['route'=> 'logout', 'Method' => 'POST']) !!}
+            {{ csrf_field() }}
+            
+            <input type="submit" name="logout" value="Logout" class="btn btn-default" style="margin-top: 10px">
+
+            {!! Form::close() !!}
+            <!--
             <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
-                                        </form></li>
+                                        </form></li>-->
 
             @else
 

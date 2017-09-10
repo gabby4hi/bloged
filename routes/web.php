@@ -26,7 +26,7 @@ Route::group(['middleware'=>['web']], function(){
 		//Authentication ..............
 	Route::get('auth/login', 'Auth\LoginController@getLogin');
 	Route::post('auth/login', 'Auth\LoginController@postLogin');
-	Route::get('auth/logout', 'Auth\LoginController@getLogout');
+	Route::post('logout', ['as'=> 'logout', 'uses'=> 'Auth\LoginController@logout']);
 
 	//Registration of users........
 
@@ -49,4 +49,5 @@ Route::group(['middleware'=>['web']], function(){
 });
 Auth::routes();
 
+//This is the critical changes i made after making an authomatic Auth, so redirected the controller the system usually have to our own made controller with page
 Route::get('/home', 'PagesController@getIndex');
